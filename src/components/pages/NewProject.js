@@ -6,7 +6,7 @@ import styles from './NewProject.module.css'
 function NewProject(){
 
     const navigate = useNavigate()
-
+    
     function createPost(project){
 
         //iniciaçao cost e services
@@ -14,16 +14,16 @@ function NewProject(){
         project.services = []
 
         fetch('http://localhost:5000/projects',{
-            method: "POST",
+            method: 'POSt',
             headers:{
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(project)//para enviar como string 
+            body: JSON.stringify(project),//para enviar como string 
         })
         .then((resp) => resp.json())
         .then((data) => {
             console.log(data)
-            navigate('/projects', {message: 'projeto criado com sucesso!'})
+            navigate('/projects',{ message: 'Projeto criado com sucesso!' }) 
         })
         .catch(err => console.log(err))
 
